@@ -13,9 +13,9 @@ EX: ADD X0, X1, 5
 
 filler: 11110000
 
-| Opcode (2 bit) | Reg2 (2 bit) | filler (8 bit) | Reg1 (2 bit) | DstReg (2 bit) |
-for imm:
-| Opcode (2 bit) | imm (10 bit) | Reg1 (2 bit) | DstReg (2 bit) |
+| Opcode (2 bit) | Reg2 (2 bit) | filler (8 bit) | Reg1 (2 bit) | DstReg (2 bit) |  
+for imm:  
+| Opcode (2 bit) | imm (10 bit) | Reg1 (2 bit) | DstReg (2 bit) |  
 
 for LDR & STR:  
 EX: LDR X0, [X1, 5]  
