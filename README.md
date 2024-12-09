@@ -7,7 +7,7 @@ Machine Code: 16 bits
 - imm -> 10 bits
 - filler -> 8 bits
 
-for ADD & SUB:
+for ADD & SUB:  
 EX: ADD X0, X1, X2
 EX: ADD X0, X1, 5
 
