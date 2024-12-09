@@ -4,9 +4,9 @@ import os
 opcodes = {"ADD": 0b00, "SUB": 0b01, "LDR": 0b10, "STR": 0b11}
 registers = {"X0": 0b00, "X1": 0b01, "X2": 0b10, "X3": 0b11}
 
-#Analyzes input and translates into machine code
-#EX: ADD X0, X1, X2 -> [ADD, X0, X1, X2] -> [00,00,01,10] -> 0000111100000110
-#EX: ADD X0, X1, 5 -> [ADD, X0, X1, 5] -> [00, 00, 01, 0000000101] -> 0000000001010101
+#Analyzes input and translates into machine code and then hex
+#EX: ADD X0, X1, X2 -> [ADD, X0, X1, X2] -> [00,00,01,10] -> 0000111100000110 -> 0x0f06
+#EX: ADD X0, X1, 5 -> [ADD, X0, X1, 5] -> [00, 00, 01, 0000000101] -> 0000000001010101 -> 0055
 
 def assemble(line):
     '''Translates a line of assembly into binary.'''
@@ -50,15 +50,16 @@ def create_image(assembly, output):
             hex_code = f"{machine_code:04x}"
             line.append(hex_code)
 
-            if (len(line) == 8):
-                    file.write(f"{address:02X}: {' '.join(line)}\n")
+            if (len(line) == 4):
+                    file.write(f"{address:02x}: {' '.join(line)}\n")
                     line = []
-                    address += 8
-        if line:
-            file.write(f"{address:02X}: {' '.join(line)}\n")
+                    address += 4
+        if line != []:
+            file.write(f"{address:02x}: {' '.join(line)}\n")
 
 assembly_code = []
 
+print("Welcome to PacMo! This CPU Project was created by Matthew Mohamed & Jake Paccione. \n")
 #Prompts user input to add assembly instruction into a list that translates it into binary and hex data.
 while True:
     if (assembly_code != []):
