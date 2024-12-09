@@ -8,7 +8,7 @@ Machine Code: 16 bits
 - filler -> 8 bits
 
 for ADD & SUB:  
-EX: ADD X0, X1, X2
+EX: ADD X0, X1, X2  
 EX: ADD X0, X1, 5
 
 filler: 11110000
@@ -17,7 +17,7 @@ filler: 11110000
 for imm:
 | Opcode (2 bit) | imm (10 bit) | Reg1 (2 bit) | DstReg (2 bit) |
 
-for LDR & STR:
-EX: LDR X0, [X1, 5]
+for LDR & STR:  
+EX: LDR X0, [X1, 5]  
 
 | Opcode (2 bit) | imm (10 bit) | Reg1 (2 bit) | DstReg (2 bit) |
