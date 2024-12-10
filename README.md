@@ -1,5 +1,5 @@
-**PacMo CPU User Manual**  
-Matthew Mohamed & Jake Paccione
+# PacMo CPU User Manual #  
+*By Matthew Mohamed & Jake Paccione*
 
 PacMo is a 16-bit CPU with four general-purpose registers (X0-X3), two read ports, and one write port. PacMo can perform addition and subtraction of two 16-bit numbers, one number coming from a register and the second either coming from a register or an immediate number. PacMo can also store data in memory using an immediate number for the offset and load data from memory using an immediate number as the offset.
 
