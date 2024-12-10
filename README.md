@@ -1,23 +1,44 @@
-# PacMo-CPU
-Innovative CPU
+**PacMo CPU User Manual**  
+Matthew Mohamed & Jake Paccione
 
-Machine Code: 16 bits
-- Opcode: ADD (00), SUB (01), LDR (10), STR (11) -> 2 bits
-- readreg1, readreg2, dstreg -> 2 bits each
-- imm -> 10 bits
-- filler -> 8 bits
+PacMo is a 16-bit CPU with four general-purpose registers (X0-X3), two read ports, and one write port. PacMo can perform addition and subtraction of two 16-bit numbers, one number coming from a register and the second either coming from a register or an immediate number. PacMo can also store data in memory using an immediate number for the offset and load data from memory using an immediate number as the offset.
 
-for ADD & SUB:  
-EX: ADD X0, X1, X2  
-EX: ADD X0, X1, 5
+**Usage:**
 
-filler: 11110000
+- Download the ‘PacMo CPU Package’ and ensure the following files are in your saved directory:  
+  - PacMo.circ  
+  - translator.py  
+- Create and name your ARM64 assembly file to **assembly.s** and place it in the same directory as the pre-existing program files.  
+- Open *translator.py* in VS Code (or any suitable IDE) and run it inside of a terminal window. This should create an output file called **output.txt** in the same directory as the program files.  
+- Open *PacMo.circ* and locate the instruction memory in the Logisim circuit on the left side.  
+  - Right Click and use 'Load Image' to upload the **output.txt** for usage.  
+- After the instruction data is loaded, find the ‘Simulate’ tab in the top left of Logisim, and either manually tick through the program or enable ‘Auto-Tick’ to automatically run through the program. You should see the registers and/or the memory update according to the instructions.  
+- To reset the circuit / simulation, find the ‘Simulate’ tab once again and use ‘Reset Simulation’ (CTRL R).
 
-| Opcode (2 bit) | Reg2 (2 bit) | filler (8 bit) | Reg1 (2 bit) | DstReg (2 bit) |  
-for imm:  
-| Opcode (2 bit) | imm (10 bit) | Reg1 (2 bit) | DstReg (2 bit) |  
+**Instruction Syntax:**  
+Our instruction set mirrors the syntax of ARM64 Assembly. Here is a quick rundown of our basic instructions.
 
-for LDR & STR:  
-EX: LDR X0, [X1, 5]  
+- ADD Xd, Xn, Xm : *Xd \= Xn \+ Xm*  
+- ADD Xd, Xn, simm10 : *Xd \= Xn \+ simm10*  
+- SUB Xd, Xn, Xm : *Xd \= Xn \- Xm*  
+- SUB Xd, Xn, simm10 : *Xd \= Xn \- simm10*  
+- LDR Xt, \[base, uimm10\] : loads a halfword from memory addressed by base+uimm10 to Xt.  
+- STR Xt, \[base, uimm10\] : stores a halfword from Xt to memory addressed by base+uimm10;
 
-| Opcode (2 bit) | imm (10 bit) | Reg1 (2 bit) | DstReg (2 bit) |
+***Binary Encodings:***  
+ADD / SUB:  
+	*for register addition:*  
+| Opcode (00/01) | Reg2 (2 bit) | 11110000 | Reg1 (2 bit) | DstReg (2 bit) |  
+*for imm:*  
+| Opcode (00/01) | simm10 | Reg1 (2 bit) | DstReg (2 bit) |  
+LDR / STR:  
+	| Opcode (10/11) | uimm10 | Reg1 (2 bit) | DstReg (2 bit) |
+
+Here are some quick notes on the limitations of the 16-bit CPU:
+
+- There are 4 general purpose registers, ranging from X0-X3. Instructions such as:   
+  **ADD X5, X0, X1** will not perform correctly.  
+- You may not directly add a negative immediate integer to a register. The only way to have a negative number is to subtract two registers.  
+- The maximum positive integer available in the arithmetic instructions is 511\.  
+- The maximum offset in the data transfer instructions is 1023\.
+
