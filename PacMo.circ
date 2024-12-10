@@ -77,6 +77,12 @@
     <comp lib="0" loc="(1380,1020)" name="Bit Extender">
       <a name="in_width" val="10"/>
     </comp>
+    <comp lib="0" loc="(1410,910)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+    </comp>
     <comp lib="0" loc="(1470,710)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="facing" val="west"/>
@@ -127,6 +133,9 @@
       <a name="appearance" val="classic"/>
       <a name="output" val="true"/>
       <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(1980,830)" name="Clock">
+      <a name="phaseOffset" val="1"/>
     </comp>
     <comp lib="0" loc="(2470,780)" name="Pin">
       <a name="appearance" val="classic"/>
@@ -314,8 +323,6 @@
     <wire from="(1030,630)" to="(1030,740)"/>
     <wire from="(1030,740)" to="(1090,740)"/>
     <wire from="(1040,460)" to="(1190,460)"/>
-    <wire from="(1040,550)" to="(1040,600)"/>
-    <wire from="(1040,550)" to="(2020,550)"/>
     <wire from="(1040,600)" to="(1040,650)"/>
     <wire from="(1040,650)" to="(1040,750)"/>
     <wire from="(1040,650)" to="(1200,650)"/>
@@ -389,7 +396,9 @@
     <wire from="(1320,980)" to="(1490,980)"/>
     <wire from="(1350,700)" to="(1350,710)"/>
     <wire from="(1350,710)" to="(1420,710)"/>
-    <wire from="(1350,900)" to="(1350,950)"/>
+    <wire from="(1350,900)" to="(1350,910)"/>
+    <wire from="(1350,910)" to="(1350,950)"/>
+    <wire from="(1350,910)" to="(1410,910)"/>
     <wire from="(1370,680)" to="(1460,680)"/>
     <wire from="(1370,880)" to="(1460,880)"/>
     <wire from="(1380,1020)" to="(1620,1020)"/>
@@ -412,13 +421,14 @@
     <wire from="(1620,880)" to="(1620,1020)"/>
     <wire from="(1620,880)" to="(1650,880)"/>
     <wire from="(1640,860)" to="(1640,900)"/>
-    <wire from="(1640,860)" to="(1980,860)"/>
     <wire from="(1640,900)" to="(1650,900)"/>
     <wire from="(1660,910)" to="(1660,970)"/>
     <wire from="(1680,890)" to="(1740,890)"/>
     <wire from="(170,730)" to="(170,740)"/>
     <wire from="(170,740)" to="(180,740)"/>
-    <wire from="(1700,660)" to="(1700,720)"/>
+    <wire from="(1700,660)" to="(1700,670)"/>
+    <wire from="(1700,670)" to="(1700,720)"/>
+    <wire from="(1700,670)" to="(1990,670)"/>
     <wire from="(1700,720)" to="(1720,720)"/>
     <wire from="(1720,720)" to="(1720,790)"/>
     <wire from="(1720,720)" to="(1770,720)"/>
@@ -444,16 +454,15 @@
     <wire from="(1970,710)" to="(1970,770)"/>
     <wire from="(1970,710)" to="(2430,710)"/>
     <wire from="(1970,770)" to="(2050,770)"/>
-    <wire from="(1980,850)" to="(1980,860)"/>
-    <wire from="(1980,850)" to="(2050,850)"/>
+    <wire from="(1980,830)" to="(2050,830)"/>
+    <wire from="(1990,670)" to="(1990,850)"/>
+    <wire from="(1990,850)" to="(2050,850)"/>
     <wire from="(2000,810)" to="(2000,1100)"/>
     <wire from="(2000,810)" to="(2050,810)"/>
     <wire from="(2010,820)" to="(2010,1060)"/>
     <wire from="(2010,820)" to="(2050,820)"/>
     <wire from="(2020,1140)" to="(2020,1180)"/>
     <wire from="(2020,1180)" to="(2380,1180)"/>
-    <wire from="(2020,550)" to="(2020,830)"/>
-    <wire from="(2020,830)" to="(2050,830)"/>
     <wire from="(2290,850)" to="(2400,850)"/>
     <wire from="(2380,920)" to="(2380,1180)"/>
     <wire from="(2380,920)" to="(2470,920)"/>
