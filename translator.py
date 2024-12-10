@@ -24,8 +24,8 @@ def assemble(line):
     if opcode == "ADD" or opcode == "SUB":
         try:
             imm = int(code[3])
-            if imm < 0 or imm > 1024:
-                raise ValueError("Integer value must be non-negative at most 10 bits long.")
+            if imm < 0 or imm > 511:
+                raise ValueError("Integer input must be non-negative no greater than 511.")
             reg1 = registers[code[2]]
             binary = (opcodes[opcode] << 14) | (imm << 4) | (reg1 << 2) | dstreg
         except ValueError:
@@ -37,11 +37,12 @@ def assemble(line):
             try:
                 imm = int(code[3][:-1])
             except ValueError:
-                print("Offset must be an immediate number.")
+                print("Immediate offset must be an integer value.")
             if imm < 0 or imm > 1023:
-                raise ValueError("Integer value must be at most 10 bits long.")
+                raise ValueError("Immediate offset must be non-negative no greater than 1023.")
             reg1 = registers[code[2][1:]]
             binary = (opcodes[opcode] << 14) | (imm << 4) | (reg1 << 2) | dstreg
+            print(binary)
     else:
         raise ValueError(f"Unknown opcode: {opcode}")
     
