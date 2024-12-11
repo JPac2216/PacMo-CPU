@@ -41,6 +41,3 @@ Here are some quick notes on the limitations of the 16-bit CPU:
 - You may not directly add a negative immediate integer to a register. The only way to have a negative number is to subtract two registers.  
 - The maximum positive integer available in the arithmetic instructions is 511\.  
 - The maximum offset in the data transfer instructions is 1023\.
-
-**Job Descriptions:**  
-Matthew Mohamed and Jake Paccione collaborated effectively throughout this project while also splitting up parts to make tasks more efficient. While already collaborating together on Labs 8 and 9 in class, Matt and Jake took their already existing register file and RAM and placed it in a new Logisim file. From there, Matt began handling the majority of the wiring and design in the circuit while Jake moved on to plan out the design of the machine code and the assembler python file. They decided to mirror ARM64 assembly using 16-bit machine code for ease of use and familiarity. While each having their own tasks, Matt and Jake still collaborated and helped each other to solve common bugs in the project, and would often switch roles to broaden perspectives and potential solutions for issues.  
